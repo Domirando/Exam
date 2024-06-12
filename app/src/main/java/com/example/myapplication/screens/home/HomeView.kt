@@ -10,6 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -21,10 +28,14 @@ fun HomeView(viewModel: HomeViewModel, navController: NavController) {
     Scaffold(bottomBar = {
         BottomNavigationComponent(navController = navController)
     }) {
+        Text(text = "Funny Physics App",
+            fontSize = 22.sp,
+            modifier = Modifier.padding(bottom = 20.dp, start = 50.dp),
+            fontWeight = FontWeight.Black)
         LazyColumn(
             modifier = Modifier
                 .padding(it)
-                .padding(10.dp)
+                .padding(10.dp, top = 20.dp)
         ) {
             items(items!!) { item ->
                 Text(item.name,
